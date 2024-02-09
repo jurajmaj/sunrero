@@ -1,11 +1,28 @@
-# React + TypeScript + Vite
+# Order Management System - React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is an order management system where customers can view their pending and completed orders. The application is built using React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+You can view a running prototype of the application at the following URL: https://www.netlify.com
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Setup
+
+To get the project up and running, follow these steps:
+
+1. Clone the repository
+2. Install dependencies with `yarn install`
+3. Start the development server with `yarn dev`
+
+## Project Description
+
+This project was bootstrapped with Vite, providing a minimal setup for a React application with Hot Module Replacement (HMR) and some ESLint rules.
+
+Official plugin used:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md), which uses [Babel](https://babeljs.io/) for Fast Refresh  
+
+<br />
+
+The application uses the following mock API endpoint to retrieve information about orders: https://run.mocky.io/v3/f7c68647-1010-4479-87f9-2093ff3326cb
 
 ## Expanding the ESLint configuration
 
@@ -23,8 +40,3 @@ export default {
     tsconfigRootDir: __dirname,
   },
 }
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
