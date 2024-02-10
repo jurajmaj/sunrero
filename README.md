@@ -1,8 +1,10 @@
-# Order Management System - React + TypeScript + Vite
+# Order Management System: React + TypeScript + Vite
 
 This project is an order management system where customers can view their pending and completed orders. The application is built using React, TypeScript, and Vite.
 
-You can view a running prototype of the application at the following URL: https://www.netlify.com
+You can view a running prototype of the application at the following URL: https://sunrero.netlify.app/
+
+<br />
 
 ## Setup
 
@@ -11,6 +13,8 @@ To get the project up and running, follow these steps:
 1. Clone the repository
 2. Install dependencies with `yarn install`
 3. Start the development server with `yarn dev`
+
+<br />
 
 ## Project Description
 
@@ -24,9 +28,11 @@ Official plugin used:
 
 The application uses the following mock API endpoint to retrieve information about orders: https://run.mocky.io/v3/f7c68647-1010-4479-87f9-2093ff3326cb
 
+<br />
+
 ## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+If you are developing a production application, it is recommended to update the configuration to enable type aware lint rules:
 
 - Configure the top-level `parserOptions` property like this:
 
