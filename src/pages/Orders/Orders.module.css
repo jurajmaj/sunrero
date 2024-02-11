@@ -19,7 +19,21 @@
     height: 50px;
     text-align: center;
     color: #19254b;
-    background-color: #f7c2ca;
+    background-color: #f9d6db;
     font-weight: 600;
     margin-right: 20px;
+}
+
+.unselected:hover {
+    background-color: #fab0bb;
+}
+
+.ordersGrid {
+    position: relative;
+    top: 250px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding-bottom: 50px;
 }
