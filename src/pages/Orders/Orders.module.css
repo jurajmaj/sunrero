@@ -1,0 +1,25 @@
+.buttonContainer {
+    position: fixed;
+    top: 150px;
+    width: 100%;
+}
+
+.selected {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    color: #19254b;
+    background-color: #FB8DA0;
+    margin-right: 20px;
+    font-weight: 800;
+}
+
+.unselected {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    color: #19254b;
+    background-color: #f7c2ca;
+    font-weight: 600;
+    margin-right: 20px;
+}

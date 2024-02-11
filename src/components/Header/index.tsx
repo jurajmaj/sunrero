@@ -1,6 +1,7 @@
 /// <reference types="vite-plugin-svgr/client" />
 
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
 import ListIcon from "@mui/icons-material/List";
@@ -14,37 +15,37 @@ const Header: React.FC = () => {
       <nav>
         <ul className={styles.navbar}>
           <li>
-            <a href="/">
+            <Link to="/">
               <Logo />
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/account">
+            <Link to="/account">
               <AccountBoxOutlinedIcon />
               Account
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="/orders">
+            <Link to="/orders">
               <ListIcon />
               Orders
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="/menu">
+            <Link to="/menu">
               <RestaurantMenuIcon />
               Menu
-            </a>
+            </Link>
           </li>
 
           <li>
             {/* TODO */}
-            <a href="/language">
+            <Link to="/translate">
               <TranslateIcon />
               EN
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
