@@ -4,6 +4,8 @@ This project is an order management system where customers can view their pendin
 
 You can view a running prototype of the application at the following URL: https://sunrero.netlify.app/
 
+The application uses the following mock API endpoint to retrieve information about orders: https://run.mocky.io/v3/f7c68647-1010-4479-87f9-2093ff3326cb
+
 <br />
 
 ## Setup
@@ -23,10 +25,6 @@ This project was bootstrapped with Vite, providing a minimal setup for a React a
 Official plugin used:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md), which uses [Babel](https://babeljs.io/) for Fast Refresh  
-
-<br />
-
-The application uses the following mock API endpoint to retrieve information about orders: https://run.mocky.io/v3/f7c68647-1010-4479-87f9-2093ff3326cb
 
 <br />
 
