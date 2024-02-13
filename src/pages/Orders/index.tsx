@@ -28,14 +28,14 @@ const OrdersPage: React.FC = () => {
   let pendingOrders;
   if (data) {
     pendingOrders = data.filter((order: Order) => pendingStates.includes(order.state));
-    console.log(pendingOrders);
+    // console.log(pendingOrders);
   }
 
   let completedStates = ['completed', 'canceled_by_customer', 'rejected', 'expired', 'failed'];
   let completedOrders;
   if (data){
     completedOrders = data.filter((order: Order) => completedStates.includes(order.state));
-    console.log(completedOrders);
+    // console.log(completedOrders);
   }
 
   return (
@@ -61,17 +61,20 @@ const OrdersPage: React.FC = () => {
 
       {selectedTab === "pending" ? (
         <div className={styles.ordersGrid}>
-            {/* <h1>Pending Orders</h1> */}
             {
                 pendingOrders &&
                 pendingOrders.map(order => <OrderCard key={order.id} order={order} />)
             }
         </div>
       ) : (
-        <div>
-            <h1>Completed Orders</h1>
+        <div className={styles.ordersGrid}>
+            {
+                completedOrders &&
+                completedOrders.map(order => <OrderCard key={order.id} order={order} />)
+            }
         </div>
       )}
+      
     </div>
   );
 };

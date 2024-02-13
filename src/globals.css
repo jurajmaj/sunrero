@@ -16,7 +16,6 @@
 
 a {
   font-weight: 500;
-  /* color: #646cff; */
   color: aliceblue;
   text-decoration: inherit;
 }
@@ -24,7 +23,8 @@ a {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  /* flex-direction: column; */
+  /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
 }

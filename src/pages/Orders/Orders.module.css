@@ -1,7 +1,14 @@
-.buttonContainer {
-    position: fixed;
-    top: 150px;
+.orders {
     width: 100%;
+    top: 150px;
+    position: absolute;
+    overflow-x: hidden;
+}
+
+.buttonContainer {
+    width: 100%;
+    justify-content: center;
+    padding: 20px;
 }
 
 .selected {
@@ -29,11 +36,13 @@
 }
 
 .ordersGrid {
-    position: relative;
-    top: 250px;
-    width: 100%;
+    justify-content: center;
+    width: 1000px; 
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     padding-bottom: 50px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
 }

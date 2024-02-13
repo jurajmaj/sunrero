@@ -4,6 +4,7 @@
     width: 100%;
     height: 130px;
     background-color: #0F193B;
+    z-index: 1000;
 }
 
 .navbar {
@@ -19,7 +20,7 @@
 }
 
 .navbar li:first-child {
-    margin-right: 100px;
+    margin-right: 50px;
 }
 
 .navbar li:not(:first-child) {
@@ -44,5 +45,15 @@
 .navbar li:not(:first-child) a:hover,
 .navbar li:not(:first-child) a:focus {
     background-color: #f7c2ca;
+    color: #19254b;
+}
+
+.active {
+    border-radius: 10px;
+    background-color: #f7c2ca;
+    color: #19254b !important;
+}
+
+.active a {
     color: #19254b;
 }
