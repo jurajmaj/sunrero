@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Order } from "../../types/orderTypes";
-import { Card, CardContent, Typography, Paper, Divider, Button } from '@mui/material';
+import { Card, CardContent, Typography, Paper, Divider, Button, Box } from '@mui/material';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import { formatState } from "../../utils/formatState";
 
 interface OrderCardProps {
   order: Order;
@@ -43,10 +44,15 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
         
         {order.orderItems.map((item, index) => (
           <div key={index} style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Typography color="text.secondary" style={{ marginBottom: '20px'}}>
-              {item.quantity}x {item.orderMenuItem.translations.en.name}
-            </Typography>
-            <Typography color="text.secondary">
+            <Box display="flex" alignItems="baseline" style={{ marginBottom: '20px' }}>
+              <Typography color="text.primary">
+                {item.quantity}x
+              </Typography>
+              <Typography color="text.primary" sx={{ fontWeight: 'bold', marginLeft: '5px' }}>
+                {item.orderMenuItem.translations.en.name}
+              </Typography>
+            </Box>
+            <Typography color="text.primary" sx={{ fontWeight: 'bold' }}>
               {item.finalPrice.currency === 'EUR' ? '€' : item.finalPrice.currency}
               {item.finalPrice.amount}
             </Typography>
@@ -56,19 +62,21 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
         <Divider sx={{ borderColor: 'white', borderWidth: '2', marginTop: '50px' }}/>
         
         <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px'}}>
-          <Typography color="text.secondary">
+          <Typography color="text.primary">
             State
           </Typography>
-          <Typography color="text.secondary">
-            {order.state}
-          </Typography>
+          <Paper sx={{ background: '#f7c2ca', paddingInline: '10px'}}>
+            <Typography color="text.primary" sx={{ fontWeight: 'bold' }}>
+              {formatState(order.state)}
+            </Typography>
+          </Paper>
         </div>
 
         <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px'}}>
-          <Typography color="text.secondary">
-            Total price 
+          <Typography color="text.primary">
+            Total price
           </Typography>
-          <Typography color="text.secondary">
+          <Typography color="text.primary" sx={{ fontWeight: 'bold' }}>
             {order.totalPrice.currency === 'EUR' ? '€' : order.totalPrice.currency}
             {order.totalPrice.amount}
           </Typography>
@@ -76,7 +84,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
         
         {pendingStates.includes(order.state) && (
           <Button size="small" variant="outlined" color="error" style={{marginTop: '20px'}}
-            onClick={handleCancelOrder}>
+          onClick={handleCancelOrder}>
             Cancel Order
           </Button>
         )}
