@@ -40,7 +40,7 @@ const OrdersPage: React.FC = () => {
 
   return (
     <div className={styles.orders}>
-      <div className={styles.buttonContainer}>
+      <div className={styles.buttons}>
         <button
           className={
             selectedTab === "pending" ? styles.selected : styles.unselected

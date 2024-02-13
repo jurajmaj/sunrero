@@ -5,10 +5,10 @@
     overflow-x: hidden;
 }
 
-.buttonContainer {
+.buttons {
     width: 100%;
     justify-content: center;
-    padding: 20px;
+    padding: 11px;
 }
 
 .selected {
@@ -26,7 +26,7 @@
     height: 50px;
     text-align: center;
     color: #19254b;
-    background-color: #f9d6db;
+    background-color: #e4e4e4;
     font-weight: 600;
     margin-right: 20px;
 }
@@ -37,7 +37,7 @@
 
 .ordersGrid {
     justify-content: center;
-    width: 1000px; 
+    width: 1000px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -45,4 +45,49 @@
     margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
+}
+
+@media (max-width: 1200px) {
+
+    .ordersGrid {
+        width: 500px;
+        padding: 0 20px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .selected {
+        width: 150px;
+    }
+
+    .unselected {
+        width: 150px;
+    }
+
+    .ordersGrid {
+        width: 400px;
+        padding: 0 20px;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 585px) {
+    .selected {
+        width: 130px;
+    }
+
+    .unselected {
+        width: 130px;
+    }
+
+    .ordersGrid {
+        width: 200px;
+        padding: 0 20px;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .orders {
+        top: 210px;
+    }
 }

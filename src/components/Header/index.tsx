@@ -16,7 +16,7 @@ const Header: React.FC = () => {
     <header className={styles.header}>
       <nav>
         <ul className={styles.navbar}>
-          <li>
+          <li className={styles.logo}>
             <Link to="/">
               <Logo />
             </Link>
