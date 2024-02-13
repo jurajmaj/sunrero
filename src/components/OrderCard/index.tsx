@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Order } from "../../types/orderTypes";
 import { Card, CardContent, Typography, Paper, Divider, Button } from '@mui/material';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
@@ -9,7 +9,15 @@ interface OrderCardProps {
 }
 
 const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
+  const [isVisible, setIsVisible] = useState(true);
   const pendingStates = ['new', 'waiting_for_confirmation', 'confirmed'];
+
+  const handleCancelOrder = () => {
+    setIsVisible(false);
+  }
+
+  if(!isVisible)
+    return null;
 
   return (
     <Card sx={{ minWidth: 275, marginBottom: 2, background: '#E3E8F0' }}>
@@ -67,7 +75,8 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
         </div>
         
         {pendingStates.includes(order.state) && (
-          <Button size="small" variant="outlined" color="error" style={{marginTop: '20px'}}>
+          <Button size="small" variant="outlined" color="error" style={{marginTop: '20px'}}
+            onClick={handleCancelOrder}>
             Cancel Order
           </Button>
         )}
