@@ -8,8 +8,11 @@ import { useTranslation } from "react-i18next";
 const OrdersPage: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState<"pending" | "completed">("pending");
   const [data, setData] = useState<Order[] | null>(null);
+  const [pendingOrders, setPendingOrders] = useState<Order[] | null>(null);
+  const [completedOrders, setCompletedOrders] = useState<Order[] | null>(null);
   const { t } = useTranslation();
 
+  // fetching data
   useEffect(() => {
     const getData = async () => {
       try {
@@ -22,18 +25,20 @@ const OrdersPage: React.FC = () => {
     getData();
   }, []);
 
-  // filtering orders based on state
-  let pendingStates = ['new', 'waiting_for_confirmation', 'confirmed'];
-  let pendingOrders;
-  if (data) {
-    pendingOrders = data.filter((order: Order) => pendingStates.includes(order.state));
+  const handleCancelOrder = (orderId: string) => {
+    setPendingOrders(pendingOrders?.filter(order => order.id !== orderId) || null);
   }
 
-  let completedStates = ['completed', 'canceled_by_customer', 'rejected', 'expired', 'failed'];
-  let completedOrders;
-  if (data){
-    completedOrders = data.filter((order: Order) => completedStates.includes(order.state));
-  }
+  // filtering orders based on state
+  useEffect(() => {
+    if (data) {
+      let pendingStates = ['new', 'waiting_for_confirmation', 'confirmed'];
+      setPendingOrders(data.filter((order: Order) => pendingStates.includes(order.state)));
+  
+      let completedStates = ['completed', 'canceled_by_customer', 'rejected', 'expired', 'failed'];
+      setCompletedOrders(data.filter((order: Order) => completedStates.includes(order.state)));
+    }
+  }, [data]);
 
   return (
     <div className={styles.orders}>
@@ -60,14 +65,14 @@ const OrdersPage: React.FC = () => {
         <div className={styles.ordersGrid}>
             {
                 pendingOrders &&
-                pendingOrders.map(order => <OrderCard key={order.id} order={order} />)
+                pendingOrders.map(order => <OrderCard key={order.id} order={order} onCancel={handleCancelOrder} />)
             }
         </div>
       ) : (
         <div className={styles.ordersGrid}>
             {
                 completedOrders &&
-                completedOrders.map(order => <OrderCard key={order.id} order={order} />)
+                completedOrders.map(order => <OrderCard key={order.id} order={order} onCancel={handleCancelOrder}/>)
             }
         </div>
       )}

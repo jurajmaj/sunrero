@@ -9,19 +9,16 @@ import { useTranslation } from "react-i18next";
 
 interface OrderCardProps {
   order: Order;
+  onCancel: (orderId: string) => void;
 }
 
-const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
-  const [isVisible, setIsVisible] = useState(true);
+const OrderCard: React.FC<OrderCardProps> = ({ order, onCancel }) => {
   const pendingStates = ['new', 'waiting_for_confirmation', 'confirmed'];
   const { t } = useTranslation();
 
   const handleCancelOrder = () => {
-    setIsVisible(false);
-  }
-
-  if(!isVisible)
-    return null;
+    onCancel(order.id);
+  };
 
   return (
     <Card sx={{ minWidth: 275, marginBottom: 2, background: '#E3E8F0' }}>
