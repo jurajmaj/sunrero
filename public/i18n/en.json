@@ -1,0 +1,22 @@
+{
+  "account": "Account",
+  "orders": "Orders",
+  "menu": "Menu",
+  "translate": "EN",
+
+  "pending_orders": "Pending",
+  "completed_orders": "Completed",
+  "state": "State",
+  "total_price": "Total price",
+  "cancel_order": "Cancel order",
+
+  "new": "New",
+  "waiting_for_confirmation": "Waiting for confirmation",
+  "confirmed": "Confirmed",
+
+  "completed": "Completed",
+  "canceled_by_customer": "Canceled by customer",
+  "rejected": "Rejected",
+  "expired": "Expired",
+  "failed": "Failed"
+}

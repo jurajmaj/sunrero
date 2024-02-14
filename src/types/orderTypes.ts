@@ -23,6 +23,7 @@ export interface OrderMenuItem {
     };
   };
 }
+
 export interface OrderMenuItemFinalPrice {
   amount: number;
   currency: string;

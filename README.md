@@ -1,6 +1,7 @@
 # Order Management System: React + TypeScript + Vite
 
-This project is an order management system where customers can view their pending and completed orders. The application is built using React, TypeScript, and Vite.
+This project is an order management system where customers can view their pending and completed orders. 
+The application also includes a language switcher feature that allows users to switch between English and Slovak. 
 
 You can view a running prototype of the application at the following URL: https://sunrero.netlify.app/
 

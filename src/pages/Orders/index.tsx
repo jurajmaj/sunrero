@@ -3,19 +3,18 @@ import { fetchData } from "../../_api/fetchData";
 import styles from "./Orders.module.css";
 import OrderCard from "../../components/OrderCard";
 import { Order } from '../../types/orderTypes';
+import { useTranslation } from "react-i18next";
 
 const OrdersPage: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState<"pending" | "completed">(
-    "pending"
-  );
+  const [selectedTab, setSelectedTab] = useState<"pending" | "completed">("pending");
   const [data, setData] = useState<Order[] | null>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const getData = async () => {
       try {
         const result = await fetchData();
         setData(result);
-        // console.log(result);
       } catch (error) {
         console.error('Failed to fetch data:', error);
       }
@@ -28,14 +27,12 @@ const OrdersPage: React.FC = () => {
   let pendingOrders;
   if (data) {
     pendingOrders = data.filter((order: Order) => pendingStates.includes(order.state));
-    // console.log(pendingOrders);
   }
 
   let completedStates = ['completed', 'canceled_by_customer', 'rejected', 'expired', 'failed'];
   let completedOrders;
   if (data){
     completedOrders = data.filter((order: Order) => completedStates.includes(order.state));
-    // console.log(completedOrders);
   }
 
   return (
@@ -47,7 +44,7 @@ const OrdersPage: React.FC = () => {
           }
           onClick={() => setSelectedTab("pending")}
         >
-          Pending
+          {t('pending_orders')}
         </button>
         <button
           className={
@@ -55,7 +52,7 @@ const OrdersPage: React.FC = () => {
           }
           onClick={() => setSelectedTab("completed")}
         >
-          Completed
+          {t('completed_orders')}
         </button>
       </div>
 

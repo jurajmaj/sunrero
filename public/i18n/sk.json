@@ -1,0 +1,22 @@
+{
+  "account": "Účet",
+  "orders": "Objednávky",
+  "menu": "Menu",
+  "translate": "SK",
+
+  "pending_orders": "Rozpracované",
+  "completed_orders": "Dokončené",
+  "state": "Stav",
+  "total_price": "Celková suma",
+  "cancel_order": "Zrušiť objednávku",
+
+  "new": "Nová",
+  "waiting_for_confirmation": "Čaká na potvrdenie",
+  "confirmed": "Potvrdená",
+
+  "completed": "Dokončená",
+  "canceled_by_customer": "Zrušená zákazníkom",
+  "rejected": "Zamietnutá",
+  "expired": "Vypršaná",
+  "failed": "Neúspešná"
+}

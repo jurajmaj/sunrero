@@ -4,6 +4,8 @@ import { Card, CardContent, Typography, Paper, Divider, Button, Box } from '@mui
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { formatState } from "../../utils/formatState";
+import { getItemName } from "../../utils/getItemName";
+import { useTranslation } from "react-i18next";
 
 interface OrderCardProps {
   order: Order;
@@ -12,6 +14,7 @@ interface OrderCardProps {
 const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
   const [isVisible, setIsVisible] = useState(true);
   const pendingStates = ['new', 'waiting_for_confirmation', 'confirmed'];
+  const { t } = useTranslation();
 
   const handleCancelOrder = () => {
     setIsVisible(false);
@@ -49,7 +52,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
                 {item.quantity}x
               </Typography>
               <Typography color="text.primary" sx={{ fontWeight: 'bold', marginLeft: '5px' }}>
-                {item.orderMenuItem.translations.en.name}
+                {getItemName(item)}
               </Typography>
             </Box>
             <Typography color="text.primary" sx={{ fontWeight: 'bold' }}>
@@ -63,7 +66,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
         
         <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px'}}>
           <Typography color="text.primary">
-            State
+            {t('state')}
           </Typography>
           <Paper sx={{ background: '#f7c2ca', paddingInline: '10px'}}>
             <Typography color="text.primary" sx={{ fontWeight: 'bold' }}>
@@ -74,7 +77,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
 
         <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px'}}>
           <Typography color="text.primary">
-            Total price
+            {t('total_price')}
           </Typography>
           <Typography color="text.primary" sx={{ fontWeight: 'bold' }}>
             {order.totalPrice.currency === 'EUR' ? '€' : order.totalPrice.currency}
@@ -85,7 +88,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
         {pendingStates.includes(order.state) && (
           <Button size="small" variant="outlined" color="error" style={{marginTop: '20px'}}
           onClick={handleCancelOrder}>
-            Cancel Order
+            {t('cancel_order')}
           </Button>
         )}
 

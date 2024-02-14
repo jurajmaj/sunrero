@@ -8,9 +8,12 @@ import ListIcon from "@mui/icons-material/List";
 import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
 import TranslateIcon from "@mui/icons-material/Translate";
 import Logo from "../../assets/logo.svg?react";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 const Header: React.FC = () => {
   const location = useLocation();
+  const { t } = useTranslation();
 
   return (
     <header className={styles.header}>
@@ -24,29 +27,29 @@ const Header: React.FC = () => {
           <li className={location.pathname === "/account" ? styles.active : ""}>
             <Link to="/account">
               <AccountBoxOutlinedIcon />
-              Account
+              {t('account')}
             </Link>
           </li>
 
           <li className={location.pathname === "/orders" ? styles.active : ""}>
             <Link to="/orders">
               <ListIcon />
-              Orders
+              {t('orders')}
             </Link>
           </li>
 
           <li className={location.pathname === "/menu" ? styles.active : ""}>
             <Link to="/menu">
               <RestaurantMenuIcon />
-              Menu
+              {t('menu')}
             </Link>
           </li>
 
-          <li className={location.pathname === "/translate" ? styles.active : ""}>
-            <Link to="/translate">
+          <li>
+          <a href="#" onClick={(e) => {e.preventDefault(); i18next.changeLanguage(i18next.language === 'en' ? 'sk' : 'en');}}>
               <TranslateIcon />
-              EN
-            </Link>
+              {t('translate')}
+            </a>
           </li>
         </ul>
       </nav>
